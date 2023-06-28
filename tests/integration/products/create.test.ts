@@ -22,8 +22,8 @@ describe('POST /products', function () {
   // it('caso não seja enviado o orderId, deve retornar status 400', async function () {});
   it('caso seja enviado os dados corretamente, deve retornar status 201', async function () {
     const httpRequestBody = productsMock.validProductBody;
-    const mockCreateProduct = ProductModel.build(productsMock.validResponse);
-    sinon.stub(ProductModel, 'create').resolves(mockCreateProduct);
+    const mockCreatedProduct = ProductModel.build(productsMock.validResponse);
+    sinon.stub(ProductModel, 'create').resolves(mockCreatedProduct);
     const httpResponse = await chai.request(app).post('/products').send(httpRequestBody);
 
     expect(httpResponse.status).to.equal(201);
