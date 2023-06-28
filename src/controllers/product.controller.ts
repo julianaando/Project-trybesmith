@@ -13,6 +13,12 @@ async function create(req: Request, res: Response) {
   return res.status(201).json(serviceResponse.data);
 }
 
+async function listAll(_req: Request, res: Response) {
+  const serviceResponse = await productsService.listAll();
+  return res.status(200).json(serviceResponse.data);
+}
+
 export default {
   create,
+  listAll,
 };
